@@ -4,7 +4,7 @@ Class {
 	#category : #BaselineOfFlickr
 }
 
-{ #category : #baseline }
+{ #category : #baselines }
 BaselineOfFlickr >> baseline: spec [
 
 	<baseline>
