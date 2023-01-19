@@ -8,8 +8,8 @@ TFlickrEndpoint >> configureOn: http [
 
 	http queryAt: #method put: self method.
 	self class slots
-		select: [ :aSlot | aSlot isKindOf: FlickrQuerySlot ]
-		thenDo: [ :aSlot | http queryAt: aSlot queryName put: aSlot value ]
+		select: #isFlickrQuery
+		thenDo: [ :aSlot | http queryAt: aSlot queryName put: (aSlot read: self) ]
 ]
 
 { #category : #accessing }
