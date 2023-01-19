@@ -6,21 +6,17 @@ Class {
 
 { #category : #baseline }
 BaselineOfFlickr >> baseline: spec [
-	<baseline>
-	spec
-		for: #common
-		do: [ 
-			self
-				declareEthelOn: spec.
 
-			spec
-				package: 'Flickr' with: [ spec requires: #('Ethel') ].
- ]
+	<baseline>
+	spec for: #common do: [ 
+		self declareEthelOn: spec.
+		spec package: 'Flickr' with: [ spec requires: #( 'Ethel' ) ].
+		spec group: 'default' with: #( Flickr ) ]
 ]
 
 { #category : #'external projects' }
 BaselineOfFlickr >> declareEthelOn: spec [
 	spec
 		baseline: 'Ethel'
-		with: [ spec repository: 'github://grype/Ethel' ]
+		with: [ spec repository: 'github://grype/Ethel:pharo10' ]
 ]
