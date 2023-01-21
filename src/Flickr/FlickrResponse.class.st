@@ -9,7 +9,7 @@ Class {
 	#pools : [
 		'FlickrResponseStatus'
 	],
-	#category : #'Flickr-Core'
+	#category : #'Flickr-Responses'
 }
 
 { #category : #accessing }

@@ -5,7 +5,7 @@ Class {
 		'Fail',
 		'OK'
 	],
-	#category : #'Flickr-Core'
+	#category : #'Flickr-Responses'
 }
 
 { #category : #initialization }

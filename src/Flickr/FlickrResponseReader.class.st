@@ -4,7 +4,7 @@ Class {
 	#classVars : [
 		'JSONResponsePrefix'
 	],
-	#category : #'Flickr-Core'
+	#category : #'Flickr-Responses'
 }
 
 { #category : #'instance creation' }
