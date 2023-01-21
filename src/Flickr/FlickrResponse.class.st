@@ -13,6 +13,13 @@ Class {
 }
 
 { #category : #accessing }
+FlickrResponse class >> neoJsonMapping: mapper [
+	mapper for: self do: [ :mapping | 
+		mapping mapInstVars: #(stat code message)
+		]
+]
+
+{ #category : #accessing }
 FlickrResponse >> code [
 
 	^ code
