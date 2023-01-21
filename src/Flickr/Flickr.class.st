@@ -50,7 +50,12 @@ Flickr class >> settingsOn: builder [
 Flickr >> configureOn: http [
 
 	super configureOn: http.
-	http request
+	http
 		queryAt: #api_key put: APIKey;
 		queryAt: #format put: #json
+]
+
+{ #category : #accessing }
+Flickr >> photos [
+	^ self / FlickrPhotosEndpoint 
 ]

@@ -13,11 +13,6 @@ FlickrQuerySlot class >> named: aQueryName [
 	^ self basicNew initializeWithQueryName: aQueryName
 ]
 
-{ #category : #'meta-object-protocol' }
-FlickrQuerySlot >> initialize: anObject [
-	super initialize: anObject.
-]
-
 { #category : #initialization }
 FlickrQuerySlot >> initializeWithQueryName: aString [
 
