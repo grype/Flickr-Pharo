@@ -52,7 +52,9 @@ Flickr >> configureOn: http [
 	super configureOn: http.
 	http
 		queryAt: #api_key put: APIKey;
-		queryAt: #format put: #json
+		queryAt: #format put: #json.
+	http contentReader: [ :entity | 
+		FlickrResponseReader fromString: entity contents ]
 ]
 
 { #category : #accessing }
