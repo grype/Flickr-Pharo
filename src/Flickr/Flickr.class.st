@@ -58,6 +58,11 @@ Flickr >> configureOn: http [
 ]
 
 { #category : #accessing }
+Flickr >> people [
+	^ self / FlickrPeopleEndpoint 
+]
+
+{ #category : #accessing }
 Flickr >> photos [
 	^ self / FlickrPhotosEndpoint 
 ]
