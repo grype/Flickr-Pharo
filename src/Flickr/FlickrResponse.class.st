@@ -25,12 +25,6 @@ FlickrResponse >> code [
 	^ code
 ]
 
-{ #category : #accessing }
-FlickrResponse >> code: anObject [
-
-	code := anObject
-]
-
 { #category : #testing }
 FlickrResponse >> isError [
 	^ stat ~= OK
@@ -48,19 +42,7 @@ FlickrResponse >> message [
 ]
 
 { #category : #accessing }
-FlickrResponse >> message: anObject [
-
-	message := anObject
-]
-
-{ #category : #accessing }
 FlickrResponse >> stat [
 
 	^ stat
-]
-
-{ #category : #accessing }
-FlickrResponse >> stat: anObject [
-
-	stat := anObject
 ]
