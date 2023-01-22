@@ -10,6 +10,14 @@ Trait {
 }
 
 { #category : #accessing }
+TFlickrPaginatedResponse classSide >> neoJsonMapping: mapper [
+
+	mapper for: self do: [ :mapping | 
+		mapping mapInstVars: #( page pages total ).
+		mapping mapInstVar: #pageSize to: #perpage ]
+]
+
+{ #category : #accessing }
 TFlickrPaginatedResponse >> page [
 
 	^ page
