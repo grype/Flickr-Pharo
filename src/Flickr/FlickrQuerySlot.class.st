@@ -1,6 +1,6 @@
 Class {
 	#name : #FlickrQuerySlot,
-	#superclass : #ComposableSlot,
+	#superclass : #InstanceVariableSlot,
 	#instVars : [
 		'queryName'
 	],
@@ -22,17 +22,10 @@ FlickrQuerySlot >> initializeWithQueryName: aString [
 
 { #category : #accessing }
 FlickrQuerySlot >> isFlickrQuery [
-	<exposeToComposition>
 	^ true
 ]
 
 { #category : #accessing }
 FlickrQuerySlot >> queryName [
-	<exposeToComposition>
 	^ queryName ifNil: [ self name asSnakeCase ]
-]
-
-{ #category : #'meta-object-protocol' }
-FlickrQuerySlot >> wantsInitalization [
-	^ true
 ]

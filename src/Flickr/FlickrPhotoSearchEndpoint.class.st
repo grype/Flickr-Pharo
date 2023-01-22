@@ -4,7 +4,7 @@ Class {
 	#traits : 'TFlickrEndpoint',
 	#classTraits : 'TFlickrEndpoint classTrait',
 	#instVars : [
-		'#text => PropertySlot + FlickrQuerySlot'
+		'#text => PropertySlot + nil => FlickrQuerySlot'
 	],
 	#category : #'Flickr-Endpoints'
 }
