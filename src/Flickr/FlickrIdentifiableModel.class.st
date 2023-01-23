@@ -8,7 +8,7 @@ Class {
 }
 
 { #category : #accessing }
-FlickrIdentifiableModel >> neoJsonMapping: mapper [
+FlickrIdentifiableModel class >> neoJsonMapping: mapper [
 
 	mapper for: self do: [ :mapping | mapping mapInstVars: #( #id ) ]
 ]

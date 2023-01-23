@@ -4,7 +4,8 @@ Class {
 	#instVars : [
 		'stat',
 		'code',
-		'message'
+		'message',
+		'user'
 	],
 	#pools : [
 		'FlickrResponseStatus'
@@ -14,9 +15,10 @@ Class {
 
 { #category : #accessing }
 FlickrResponse class >> neoJsonMapping: mapper [
+
 	mapper for: self do: [ :mapping | 
-		mapping mapInstVars: #(stat code message)
-		]
+		mapping mapInstVars: #( stat code message ).
+		(mapping mapInstVar: #user) valueSchema: FlickrUser ].
 ]
 
 { #category : #accessing }

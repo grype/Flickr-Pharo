@@ -11,7 +11,7 @@ FlickrPeopleEndpoint >> findByUsername: aUsername [
 
 	<get>
 	<queryAt: #method put: 'flickr.people.findByUsername'>
-	<queryAt: #username put: #aUsername>
+	<queryAt: #username put: '{aUsername}'>
 	^ self execute
 ]
 

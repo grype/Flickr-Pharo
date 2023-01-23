@@ -1,16 +1,16 @@
 Trait {
-	#name : #TFlickrPaginatedResponse,
+	#name : #TFlickrPage,
 	#instVars : [
 		'page',
 		'pages',
 		'pageSize',
 		'total'
 	],
-	#category : #'Flickr-Responses'
+	#category : #'Flickr-Models'
 }
 
 { #category : #accessing }
-TFlickrPaginatedResponse classSide >> neoJsonMapping: mapper [
+TFlickrPage classSide >> neoJsonMapping: mapper [
 
 	mapper for: self do: [ :mapping | 
 		mapping mapInstVars: #( page pages total ).
@@ -18,49 +18,54 @@ TFlickrPaginatedResponse classSide >> neoJsonMapping: mapper [
 ]
 
 { #category : #accessing }
-TFlickrPaginatedResponse >> page [
+TFlickrPage >> elements [
+	^ self notImplemented 
+]
+
+{ #category : #accessing }
+TFlickrPage >> page [
 
 	^ page
 ]
 
 { #category : #accessing }
-TFlickrPaginatedResponse >> page: anObject [
+TFlickrPage >> page: anObject [
 
 	page := anObject
 ]
 
 { #category : #accessing }
-TFlickrPaginatedResponse >> pageSize [
+TFlickrPage >> pageSize [
 
 	^ pageSize
 ]
 
 { #category : #accessing }
-TFlickrPaginatedResponse >> pageSize: anObject [
+TFlickrPage >> pageSize: anObject [
 
 	pageSize := anObject
 ]
 
 { #category : #accessing }
-TFlickrPaginatedResponse >> pages [
+TFlickrPage >> pages [
 
 	^ pages
 ]
 
 { #category : #accessing }
-TFlickrPaginatedResponse >> pages: anObject [
+TFlickrPage >> pages: anObject [
 
 	pages := anObject
 ]
 
 { #category : #accessing }
-TFlickrPaginatedResponse >> total [
+TFlickrPage >> total [
 
 	^ total
 ]
 
 { #category : #accessing }
-TFlickrPaginatedResponse >> total: anObject [
+TFlickrPage >> total: anObject [
 
 	total := anObject
 ]
