@@ -24,12 +24,5 @@ FlickrPhotoPage class >> neoJsonMapping: mapper [
 
 { #category : #accessing }
 FlickrPhotoPage >> elements [
-
-	^ photos
-]
-
-{ #category : #accessing }
-FlickrPhotoPage >> photos [
-
 	^ photos
 ]
