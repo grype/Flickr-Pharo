@@ -14,6 +14,12 @@ FlickrPhotoSearchEndpoint >> cursor [
 	^ FlickrPageCursor new
 ]
 
+{ #category : #executing }
+FlickrPhotoSearchEndpoint >> execute: anExecBlock [
+	<get>
+	^ wsClient execute: self with: anExecBlock 
+]
+
 { #category : #initialization }
 FlickrPhotoSearchEndpoint >> initialize [
 	
