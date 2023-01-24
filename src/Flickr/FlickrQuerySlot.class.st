@@ -7,17 +7,18 @@ Class {
 	#category : #'Flickr-Core'
 }
 
-{ #category : #'instance creation' }
-FlickrQuerySlot class >> named: aQueryName [
+{ #category : #'as yet unclassified' }
+FlickrQuerySlot class >> mappedTo: aQueryName [
 
-	^ self basicNew initializeWithQueryName: aQueryName
+	^ self new
+		  queryName: aQueryName;
+		  yourself
 ]
 
 { #category : #initialization }
-FlickrQuerySlot >> initializeWithQueryName: aString [
-
-	self initialize.
-	aString ifNotNil: [ queryName := aString ]
+FlickrQuerySlot >> initialize [
+	super initialize.
+	queryName := self name
 ]
 
 { #category : #accessing }
@@ -28,4 +29,10 @@ FlickrQuerySlot >> isFlickrQuery [
 { #category : #accessing }
 FlickrQuerySlot >> queryName [
 	^ queryName ifNil: [ self name asSnakeCase ]
+]
+
+{ #category : #accessing }
+FlickrQuerySlot >> queryName: anObject [
+
+	^ queryName := anObject
 ]

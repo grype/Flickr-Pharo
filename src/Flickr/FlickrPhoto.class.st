@@ -13,3 +13,10 @@ Class {
 	],
 	#category : #'Flickr-Models'
 }
+
+{ #category : #accessing }
+FlickrPhoto class >> neoJsonMapping: mapper [
+	mapper for: self do: [ :mapping | 
+		mapping mapAllInstVars.
+		]
+]

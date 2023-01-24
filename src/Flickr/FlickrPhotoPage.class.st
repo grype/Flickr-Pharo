@@ -1,5 +1,5 @@
 Class {
-	#name : #PageOfPhotos,
+	#name : #FlickrPhotoPage,
 	#superclass : #FlickrModel,
 	#traits : 'TFlickrPage',
 	#classTraits : 'TFlickrPage classTrait',
@@ -10,26 +10,26 @@ Class {
 }
 
 { #category : #accessing }
-PageOfPhotos class >> neoJsonMapping: mapper [
+FlickrPhotoPage class >> neoJsonMapping: mapper [
 
 	mapper for: self do: [ :mapping | 
 		mapping mapInstVars: #( page pages total ).
 		mapping mapInstVar: #pageSize to: #perpage.
-		(mapping mapInstVar: #photos) valueSchema: #PageOfPhotos ].
+		(mapping mapInstVar: #photos to: #photo) valueSchema: #ListOfPhotos ].
 
 	mapper
-		for: #PageOfPhotos
-		customDo: [ :mapping | mapping listOfElementSchema: #FlickrPhoto ]
+		for: #ListOfPhotos
+		customDo: [ :mapping | mapping listOfElementSchema: FlickrPhoto ]
 ]
 
 { #category : #accessing }
-PageOfPhotos >> elements [
+FlickrPhotoPage >> elements [
 
 	^ photos
 ]
 
 { #category : #accessing }
-PageOfPhotos >> photos [
+FlickrPhotoPage >> photos [
 
 	^ photos
 ]

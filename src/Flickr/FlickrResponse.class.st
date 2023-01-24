@@ -5,7 +5,8 @@ Class {
 		'stat',
 		'code',
 		'message',
-		'user'
+		'user',
+		'photos'
 	],
 	#pools : [
 		'FlickrResponseStatus'
@@ -17,8 +18,9 @@ Class {
 FlickrResponse class >> neoJsonMapping: mapper [
 
 	mapper for: self do: [ :mapping | 
-		mapping mapInstVars: #( stat code message ).
-		(mapping mapInstVar: #user) valueSchema: FlickrUser ].
+		mapping mapInstVars: #( stat code message photos ).
+		(mapping mapInstVar: #user) valueSchema: FlickrUser.
+		(mapping mapInstVar: #photos) valueSchema: FlickrPhotoPage ]
 ]
 
 { #category : #accessing }
@@ -44,7 +46,19 @@ FlickrResponse >> message [
 ]
 
 { #category : #accessing }
+FlickrResponse >> photos [
+
+	^ photos
+]
+
+{ #category : #accessing }
 FlickrResponse >> stat [
 
 	^ stat
+]
+
+{ #category : #accessing }
+FlickrResponse >> user [
+
+	^ user
 ]
