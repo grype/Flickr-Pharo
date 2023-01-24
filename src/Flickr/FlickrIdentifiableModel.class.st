@@ -12,3 +12,15 @@ FlickrIdentifiableModel class >> neoJsonMapping: mapper [
 
 	mapper for: self do: [ :mapping | mapping mapInstVars: #( #id ) ]
 ]
+
+{ #category : #accessing }
+FlickrIdentifiableModel >> id [
+
+	^ id
+]
+
+{ #category : #accessing }
+FlickrIdentifiableModel >> id: anObject [
+
+	id := anObject
+]

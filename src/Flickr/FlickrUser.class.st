@@ -23,3 +23,27 @@ FlickrUser class >> neoJsonMapping: mapper [
 				ifFalse: [ val ] ].
 		mapping encoder: [ :val | val ] ]
 ]
+
+{ #category : #accessing }
+FlickrUser >> nsid [
+
+	^ nsid
+]
+
+{ #category : #accessing }
+FlickrUser >> nsid: anObject [
+
+	nsid := anObject
+]
+
+{ #category : #accessing }
+FlickrUser >> username [
+
+	^ username
+]
+
+{ #category : #accessing }
+FlickrUser >> username: anObject [
+
+	username := anObject
+]
