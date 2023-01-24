@@ -22,3 +22,62 @@ FlickrPhotoSizeSpec class >> neoJsonMapping: mapper [
 		for: #ListOfSizes
 		customDo: [ :mapping | mapping listOfElementSchema: FlickrPhotoSize ]
 ]
+
+{ #category : #accessing }
+FlickrPhotoSizeSpec >> canBlog [
+
+	^ canBlog
+]
+
+{ #category : #accessing }
+FlickrPhotoSizeSpec >> canBlog: anObject [
+
+	canBlog := anObject
+]
+
+{ #category : #accessing }
+FlickrPhotoSizeSpec >> canDownload [
+
+	^ canDownload
+]
+
+{ #category : #accessing }
+FlickrPhotoSizeSpec >> canDownload: anObject [
+
+	canDownload := anObject
+]
+
+{ #category : #accessing }
+FlickrPhotoSizeSpec >> canPrint [
+
+	^ canPrint
+]
+
+{ #category : #accessing }
+FlickrPhotoSizeSpec >> canPrint: anObject [
+
+	canPrint := anObject
+]
+
+{ #category : #accessing }
+FlickrPhotoSizeSpec >> sizes [
+
+	^ sizes
+]
+
+{ #category : #accessing }
+FlickrPhotoSizeSpec >> sizes: anObject [
+
+	sizes := anObject
+]
+
+{ #category : #'as yet unclassified' }
+FlickrPhotoSizeSpec >> smallesSizeExceeding: aPoint [
+
+	| matches |
+	matches := (sizes select: [ :aSize | 
+		            aSize width > aPoint x and: [ aSize height > aPoint y ] ]) 
+		           sorted: [ :a :b | 
+		           a width * a height < (b width * b height) ].
+	^ matches ifEmpty: [ nil ] ifNotEmpty: [ matches first ]
+]
