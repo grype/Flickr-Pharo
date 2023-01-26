@@ -18,9 +18,7 @@ FlickrPhotosEndpoint >> search [
 
 { #category : #accessing }
 FlickrPhotosEndpoint >> search: aString [
-
-	<get>
 	^ self search
 		  text: aString;
-		  execute
+		  fetchPage
 ]
