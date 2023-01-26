@@ -11,20 +11,9 @@ Class {
 }
 
 { #category : #accessing }
-Flickr class >> APIKey [
+Flickr class >> defaultWithKey: aKey [
 
-	^ APIKey
-]
-
-{ #category : #accessing }
-Flickr class >> APIKey: anObject [
-
-	APIKey := anObject
-]
-
-{ #category : #accessing }
-Flickr class >> default [
-	^ self withUrl: DefaultUrl 
+	^ self basicNew initializeWithUrl: DefaultUrl key: aKey
 ]
 
 { #category : #initialization }
@@ -32,20 +21,10 @@ Flickr class >> initialize [
 	DefaultUrl := 'https://api.flickr.com/services/rest'
 ]
 
-{ #category : #settings }
-Flickr class >> settingsOn: builder [
+{ #category : #accessing }
+Flickr class >> withUrl: aUrl key: aKey [
 
-	<systemsettings>
-	(builder group: #Flickr)
-		parent: #tools;
-		label: 'Flickr';
-		description: 'Flickr SDK Settings';
-		with: [ 
-			(builder setting: #APIKey)
-				label: 'API Key';
-				target: self;
-				default: 'APIKey';
-				description: 'Flickr API Key' ]
+	^ self basicNew initializeWithUrl: aUrl key: aKey
 ]
 
 { #category : #http }
@@ -53,7 +32,7 @@ Flickr >> configureOn: http [
 
 	super configureOn: http.
 	http
-		queryAt: #api_key put: APIKey;
+		queryAt: #api_key put: apiKey ;
 		queryAt: #format put: #json.
 	http contentReader: [ :entity | 
 		FlickrResponseReader fromString: entity contents ]
@@ -66,6 +45,21 @@ Flickr >> execute: anEndpoint with: aBlock [
 	response := super execute: anEndpoint with: aBlock.
 	response isError ifTrue: [ FlickrResponseError signal: response ].
 	^ response
+]
+
+{ #category : #initialization }
+Flickr >> initialize [
+
+	super initialize.
+	baseUrl := DefaultUrl
+]
+
+{ #category : #initialization }
+Flickr >> initializeWithUrl: aUrl key: aKey [
+
+	self initialize.
+	baseUrl := aUrl.
+	apiKey := aKey
 ]
 
 { #category : #accessing }
