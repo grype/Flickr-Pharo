@@ -68,6 +68,14 @@ Flickr >> people [
 ]
 
 { #category : #accessing }
+Flickr >> photoWithId: anId [
+
+	^ (self / FlickrPhotoEndpoint)
+		  photoId: anId;
+		  yourself
+]
+
+{ #category : #accessing }
 Flickr >> photos [
 	^ self / FlickrPhotosEndpoint 
 ]
