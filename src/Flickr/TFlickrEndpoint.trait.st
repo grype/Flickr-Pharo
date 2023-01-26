@@ -8,7 +8,7 @@ Trait {
 { #category : #configuring }
 TFlickrEndpoint >> configureOn: http [
 
-	http queryAt: #method put: self method.
+	self method ifNotNil: [ :val | http queryAt: #method put: val ].
 	self class slots
 		select: #isFlickrQuery
 		thenDo: [ :aSlot | http queryAt: aSlot queryName put: (aSlot read: self) ]
@@ -16,5 +16,5 @@ TFlickrEndpoint >> configureOn: http [
 
 { #category : #accessing }
 TFlickrEndpoint >> method [
-	^ self notImplemented 
+	^ nil
 ]
