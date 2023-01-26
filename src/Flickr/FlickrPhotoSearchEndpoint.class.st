@@ -20,6 +20,12 @@ FlickrPhotoSearchEndpoint >> execute: anExecBlock [
 	^ wsClient execute: self with: anExecBlock 
 ]
 
+{ #category : #enumerating }
+FlickrPhotoSearchEndpoint >> fetchPage [
+	<get>
+	^ self execute photos
+]
+
 { #category : #initialization }
 FlickrPhotoSearchEndpoint >> initialize [
 	
@@ -30,20 +36,6 @@ FlickrPhotoSearchEndpoint >> initialize [
 { #category : #accessing }
 FlickrPhotoSearchEndpoint >> method [
 	^ #'flickr.photos.search'
-]
-
-{ #category : #enumerating }
-FlickrPhotoSearchEndpoint >> next: anInt with: aCursor [
-
-	<get>
-	| response result |
-	page := aCursor page.
-	pageSize := anInt ifNil: [ aCursor pageSize ] ifNotNil: [:val | val min: aCursor pageSize ].
-	response := self execute photos.
-	result := response elements.
-	aCursor total: response total.
-	aCursor advance.
-	^ result
 ]
 
 { #category : #accessing }
