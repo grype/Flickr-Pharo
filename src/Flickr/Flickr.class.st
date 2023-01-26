@@ -63,6 +63,11 @@ Flickr >> initializeWithUrl: aUrl key: aKey [
 ]
 
 { #category : #accessing }
+Flickr >> interestingness [
+	^ self / FlickrInterestingnessEndpoint 
+]
+
+{ #category : #accessing }
 Flickr >> people [
 	^ self / FlickrPeopleEndpoint 
 ]
