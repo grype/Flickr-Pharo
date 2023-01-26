@@ -7,18 +7,10 @@ Class {
 	#category : #'Flickr-Core'
 }
 
-{ #category : #'as yet unclassified' }
-FlickrQuerySlot class >> mappedTo: aQueryName [
-
-	^ self new
-		  queryName: aQueryName;
-		  yourself
-]
-
 { #category : #initialization }
 FlickrQuerySlot >> initialize [
 	super initialize.
-	queryName := self name
+	queryName := self name asSnakeCase 
 ]
 
 { #category : #accessing }
