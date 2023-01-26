@@ -72,11 +72,11 @@ FlickrPhotoSizeSpec >> sizes: anObject [
 ]
 
 { #category : #'as yet unclassified' }
-FlickrPhotoSizeSpec >> smallesSizeExceeding: aPoint [
+FlickrPhotoSizeSpec >> smallestSizeExceeding: aPoint [
 
 	| matches |
 	matches := (sizes select: [ :aSize | 
-		            aSize width > aPoint x and: [ aSize height > aPoint y ] ]) 
+		            aSize width asNumber > aPoint x and: [ aSize height asNumber > aPoint y ] ]) 
 		           sorted: [ :a :b | 
 		           a width * a height < (b width * b height) ].
 	^ matches ifEmpty: [ nil ] ifNotEmpty: [ matches first ]
