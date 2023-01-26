@@ -1,8 +1,10 @@
 Class {
 	#name : #Flickr,
 	#superclass : #WSClient,
+	#instVars : [
+		'apiKey'
+	],
 	#classVars : [
-		'APIKey',
 		'DefaultUrl'
 	],
 	#category : #'Flickr-Core'
@@ -55,6 +57,15 @@ Flickr >> configureOn: http [
 		queryAt: #format put: #json.
 	http contentReader: [ :entity | 
 		FlickrResponseReader fromString: entity contents ]
+]
+
+{ #category : #execution }
+Flickr >> execute: anEndpoint with: aBlock [
+
+	| response |
+	response := super execute: anEndpoint with: aBlock.
+	response isError ifTrue: [ FlickrResponseError signal: response ].
+	^ response
 ]
 
 { #category : #accessing }
