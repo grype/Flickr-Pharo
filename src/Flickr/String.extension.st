@@ -3,7 +3,12 @@ Extension { #name : #String }
 { #category : #'*Flickr' }
 String >> asSnakeCase [
 
-	self
-		replaceAll: [ :char | char isUppercase ]
-		with: [ :char | char asLowercase , '_' ]
+	^ self class new: self size streamContents: [ :out | 
+		self do: [ :char | 
+			char isUppercase
+				ifTrue: [ 
+					out
+						nextPut: $_;
+						nextPut: char asLowercase ]
+				ifFalse: [ out nextPut: char ] ] ]
 ]
