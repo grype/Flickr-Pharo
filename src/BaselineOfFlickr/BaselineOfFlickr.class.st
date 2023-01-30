@@ -11,7 +11,10 @@ BaselineOfFlickr >> baseline: spec [
 	spec for: #common do: [ 
 		self declareEthelOn: spec.
 		spec package: 'Flickr' with: [ spec requires: #( 'Ethel' ) ].
-		spec group: 'default' with: #( Flickr ) ]
+
+		spec group: 'default' with: #( core tools ).
+		spec group: 'core' with: #( 'Flickr' ).
+		spec group: 'tools' with: #( 'Ethel-Tools' ) ]
 ]
 
 { #category : #'external projects' }
@@ -19,6 +22,10 @@ BaselineOfFlickr >> declareEthelOn: spec [
 
 	spec baseline: 'Ethel' with: [ 
 		spec
-			repository: 'github://grype/Ethel:baseline-cleanup';
-			loads: #( core ) ]
+			loads: #( core );
+			repository: 'github://grype/Ethel:baseline-cleanup' ].
+	spec
+		project: 'Ethel-Tools'
+		copyFrom: 'Ethel'
+		with: [ spec loads: #( tools ) ]
 ]
