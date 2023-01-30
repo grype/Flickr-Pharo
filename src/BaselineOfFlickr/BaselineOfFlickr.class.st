@@ -16,7 +16,9 @@ BaselineOfFlickr >> baseline: spec [
 
 { #category : #'external projects' }
 BaselineOfFlickr >> declareEthelOn: spec [
-	spec
-		baseline: 'Ethel'
-		with: [ spec repository: 'github://grype/Ethel:pharo10' ]
+
+	spec baseline: 'Ethel' with: [ 
+		spec
+			repository: 'github://grype/Ethel:baseline-cleanup';
+			loads: #( core ) ]
 ]
