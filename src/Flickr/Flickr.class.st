@@ -67,12 +67,12 @@ Flickr >> interestingness [
 	^ self / FlickrInterestingnessEndpoint 
 ]
 
-{ #category : #accessing }
+{ #category : #endpoints }
 Flickr >> people [
 	^ self / FlickrPeopleEndpoint 
 ]
 
-{ #category : #accessing }
+{ #category : #endpoints }
 Flickr >> photoWithId: anId [
 
 	^ (self / FlickrPhotoEndpoint)
@@ -80,7 +80,7 @@ Flickr >> photoWithId: anId [
 		  yourself
 ]
 
-{ #category : #accessing }
+{ #category : #endpoints }
 Flickr >> photos [
 	^ self / FlickrPhotosEndpoint 
 ]
