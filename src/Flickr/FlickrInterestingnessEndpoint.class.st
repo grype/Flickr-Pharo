@@ -12,7 +12,11 @@ Class {
 
 { #category : #accessing }
 FlickrInterestingnessEndpoint >> cursor [
-	^ FlickrPageCursor new
+	| cursor |
+
+	cursor := FlickrPageCursor new.
+	pageSize ifNotNil: [ :val | cursor pageSize: val ].
+	^ cursor
 ]
 
 { #category : #enumerating }
