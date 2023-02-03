@@ -10,15 +10,6 @@ Class {
 	#category : #'Flickr-Endpoints'
 }
 
-{ #category : #accessing }
-FlickrInterestingnessEndpoint >> cursor [
-	| cursor |
-
-	cursor := FlickrPageCursor new.
-	pageSize ifNotNil: [ :val | cursor pageSize: val ].
-	^ cursor
-]
-
 { #category : #enumerating }
 FlickrInterestingnessEndpoint >> fetchPage [
 	<get>

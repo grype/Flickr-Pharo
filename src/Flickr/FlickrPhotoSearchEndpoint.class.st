@@ -9,11 +9,6 @@ Class {
 	#category : #'Flickr-Endpoints'
 }
 
-{ #category : #accessing }
-FlickrPhotoSearchEndpoint >> cursor [
-	^ FlickrPageCursor new
-]
-
 { #category : #enumerating }
 FlickrPhotoSearchEndpoint >> fetchPage [
 	<get>
