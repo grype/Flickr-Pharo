@@ -25,6 +25,19 @@ TFlickrPagedEndpoint >> fetchPage [
 	^ self notImplemented
 ]
 
+{ #category : #enumerating }
+TFlickrPagedEndpoint >> nextWith: aCursor [
+	| response result |
+
+	page := aCursor page.
+	perPage := aCursor pageSize.
+	response := self fetchPage.
+	result := response elements.
+	aCursor total: response total.
+	aCursor advance.
+	^ result
+]
+
 { #category : #accessing }
 TFlickrPagedEndpoint >> page [
 
