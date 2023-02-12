@@ -28,14 +28,24 @@ Flickr class >> withUrl: aUrl key: aKey [
 ]
 
 { #category : #http }
-Flickr >> configureOn: http [
+Flickr >> configure [
+	super configure.
+	WSCurrentContext value ifNotNil: [ :context | 
+		| http endpoint |
 
-	super configureOn: http.
-	http
-		queryAt: #api_key put: apiKey ;
-		queryAt: #format put: #json.
-	http contentReader: [ :entity | 
-		FlickrResponseReader fromString: entity contents ]
+		http := context transport.
+		http
+			queryAt: #api_key put: apiKey;
+			queryAt: #format put: #json.
+			
+		http contentReader: [ :entity | 
+			FlickrResponseReader fromString: entity contents ].
+
+		endpoint := context endpoint.
+		endpoint method ifNotNil: [ :val | http queryAt: #method put: val ].
+		endpoint class slots select: #isFlickrQuery thenDo: [ :aSlot | 
+			(aSlot read: endpoint) ifNotNil: [ :val | 
+				http queryAt: aSlot queryName put: val ] ] ]
 ]
 
 { #category : #execution }
