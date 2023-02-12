@@ -7,5 +7,5 @@ Trait {
 
 { #category : #accessing }
 TFlickrEndpoint >> method [
-	^ nil
+	^ self notYetImplemented 
 ]
