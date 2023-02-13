@@ -108,5 +108,6 @@ FlickrPhotoSizeSpec >> smallestSizeExceeding: aPoint [
 { #category : #accessing }
 FlickrPhotoSizeSpec >> sortedSizes [
 	^ sizes sorted: [ :a :b | 
-		  a width asInteger * a height asInteger < (b width asInteger * b height asInteger) ]
+		  a width asNumber * a height asNumber
+		  < (b width asNumber * b height asNumber) ]
 ]
