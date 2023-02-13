@@ -35,6 +35,11 @@ FlickrPhotoSearchEndpoint >> beForOtherOnlyContentType [
 ]
 
 { #category : #configuring }
+FlickrPhotoSearchEndpoint >> beForPhotoMedia [
+	media := PhotoMedia
+]
+
+{ #category : #configuring }
 FlickrPhotoSearchEndpoint >> beForPhotosAndOtherContentType [
 	contentType := PhotosAndOtherContentType 
 ]
@@ -42,11 +47,6 @@ FlickrPhotoSearchEndpoint >> beForPhotosAndOtherContentType [
 { #category : #configuring }
 FlickrPhotoSearchEndpoint >> beForPhotosAndScreenshotsContentType [
 	contentType := PhotosAndScreenshotsContentType 
-]
-
-{ #category : #configuring }
-FlickrPhotoSearchEndpoint >> beForPhotosOnly [
-	media := PhotoMedia
 ]
 
 { #category : #configuring }
@@ -65,7 +65,7 @@ FlickrPhotoSearchEndpoint >> beForScreenshotsOnlyContentType [
 ]
 
 { #category : #configuring }
-FlickrPhotoSearchEndpoint >> beForVideosOnly [
+FlickrPhotoSearchEndpoint >> beForVideoMedia [
 	media := VideoMedia
 ]
 
