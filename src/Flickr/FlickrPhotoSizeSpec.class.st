@@ -59,6 +59,20 @@ FlickrPhotoSizeSpec >> canPrint: anObject [
 	canPrint := anObject
 ]
 
+{ #category : #'as yet unclassified' }
+FlickrPhotoSizeSpec >> largestSize [
+	sizes ifEmpty: [ ^ nil ].
+	sizes size > 1 ifFalse: [ ^ sizes first ].
+	^ self sortedSizes last
+]
+
+{ #category : #'as yet unclassified' }
+FlickrPhotoSizeSpec >> medianSize [
+	sizes ifEmpty: [ ^ nil ].
+	sizes size > 2 ifFalse: [ ^ sizes first ].
+	^ self sortedSizes at: (sizes size / 2) asInteger
+]
+
 { #category : #accessing }
 FlickrPhotoSizeSpec >> sizes [
 
@@ -72,12 +86,26 @@ FlickrPhotoSizeSpec >> sizes: anObject [
 ]
 
 { #category : #'as yet unclassified' }
-FlickrPhotoSizeSpec >> smallestSizeExceeding: aPoint [
+FlickrPhotoSizeSpec >> smallestSize [
+	sizes ifEmpty: [ ^ nil ].
+	sizes size > 1 ifFalse: [ ^ sizes first ].
+	^ self sortedSizes first
+]
 
+{ #category : #'as yet unclassified' }
+FlickrPhotoSizeSpec >> smallestSizeExceeding: aPoint [
 	| matches |
+
 	matches := (sizes select: [ :aSize | 
-		            aSize width asNumber > aPoint x and: [ aSize height asNumber > aPoint y ] ]) 
-		           sorted: [ :a :b | 
+		            aSize width asNumber > aPoint x and: [ 
+			            aSize height asNumber > aPoint y ] ]) sorted: [ :a :b | 
 		           a width * a height < (b width * b height) ].
-	^ matches ifEmpty: [ nil ] ifNotEmpty: [ matches first ]
+	^ matches
+		  ifEmpty: [ nil ]
+		  ifNotEmpty: [ matches first ]
+]
+
+{ #category : #'as yet unclassified' }
+FlickrPhotoSizeSpec >> sortedSizes [
+	^ sizes sorted: [ :a :b | a width * a height < (b width * b height) ]
 ]
