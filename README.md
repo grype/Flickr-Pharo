@@ -53,3 +53,13 @@ flickr photos search text: 'some query'; collect: [ :aPhoto |
     aPhoto -> ((flickr photoWithId: aPhoto id) sizes)
 ].
 ```
+
+Which means we can lazily crawl over those endpoints with Generators:
+
+```smalltalk
+cursor := FlickrPageCursor new page: 1; pageSize: 100; yourself.generator := Generator on: [ :aGenerator | 	[cursor hasMore] whileTrue: [  		flickr interestingness nextWith: cursor			:> shuffled			:> do: [ :aPhoto | | form |				form := flickr photoWithId: aPhoto id					:> sizes					:> medianSize					:> source					:> asUrl					:> retrieveContents					:> ifNotNil: [ :data | Form fromBinaryStream: data readStream ].				aGenerator yield: form ]]].
+				
+generator next.
+```
+
+The idea here is that we fetch and #yield the appropriate size image, while paginating the endpoint via #nextWith:. The [Functional](https://github.com/dvmason/Pharo-Functional) syntax was thrown in for elegance.
