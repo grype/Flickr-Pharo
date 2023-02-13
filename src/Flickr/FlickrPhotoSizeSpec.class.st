@@ -94,15 +94,22 @@ FlickrPhotoSizeSpec >> smallestSize [
 
 { #category : #accessing }
 FlickrPhotoSizeSpec >> smallestSizeExceeding: aPoint [
+	^ self smallestSizeExceeding: aPoint forMedia: nil
+]
+
+{ #category : #accessing }
+FlickrPhotoSizeSpec >> smallestSizeExceeding: aPoint forMedia: aMediaType [
 	| matches |
 
 	matches := (sizes select: [ :aSize | 
-		            aSize width asNumber > aPoint x and: [ 
-			            aSize height asNumber > aPoint y ] ]) sorted: [ :a :b | 
-		           a width * a height < (b width * b height) ].
-	^ matches
-		  ifEmpty: [ nil ]
-		  ifNotEmpty: [ matches first ]
+		            (aMediaType
+			             ifNil: [ true ]
+			             ifNotNil: [ :media | aSize media = media ]) and: [ 
+			            aSize width asNumber > aPoint x and: [ 
+				            aSize height asNumber > aPoint y ] ] ]) sorted: [ :a :b | 
+		           a width asNumber * a height asNumber
+		           < (b width asNumber * b height asNumber) ].
+	^ matches ifEmpty: [ nil ] ifNotEmpty: [ matches first ]
 ]
 
 { #category : #accessing }
