@@ -6,10 +6,12 @@ Class {
 	#instVars : [
 		'#text => FlickrQuerySlot',
 		'#safeSearch => FlickrQuerySlot',
-		'#media => FlickrQuerySlot'
+		'#media => FlickrQuerySlot',
+		'#privacyFilter => FlickrQuerySlot'
 	],
 	#pools : [
 		'FlickrMediaConstants',
+		'FlickrPrivacyFilterConstants',
 		'FlickrSafeSearchConstants'
 	],
 	#category : #'Flickr-Endpoints'
@@ -49,6 +51,31 @@ FlickrPhotoSearchEndpoint >> beSafe [
 FlickrPhotoSearchEndpoint >> fetchPage [
 	<get>
 	^ self execute photos
+]
+
+{ #category : #configuring }
+FlickrPhotoSearchEndpoint >> filterCircle [
+	privacyFilter := Circle 
+]
+
+{ #category : #configuring }
+FlickrPhotoSearchEndpoint >> filterFamily [
+	privacyFilter := Family
+]
+
+{ #category : #configuring }
+FlickrPhotoSearchEndpoint >> filterFriends [
+	privacyFilter := Friends 
+]
+
+{ #category : #configuring }
+FlickrPhotoSearchEndpoint >> filterPrivate [
+	privacyFilter := Private
+]
+
+{ #category : #configuring }
+FlickrPhotoSearchEndpoint >> filterPublic [
+	privacyFilter := Public
 ]
 
 { #category : #initialization }
