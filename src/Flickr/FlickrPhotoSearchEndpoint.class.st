@@ -24,22 +24,22 @@ FlickrPhotoSearchEndpoint >> beForAllMedia [
 
 { #category : #configuring }
 FlickrPhotoSearchEndpoint >> beForPhotosOnly [
-	media := Photos
+	media := PhotoMedia
 ]
 
 { #category : #configuring }
 FlickrPhotoSearchEndpoint >> beForVideosOnly [
-	media := Videos
+	media := VideoMedia
 ]
 
 { #category : #configuring }
 FlickrPhotoSearchEndpoint >> beModerateSafety [
-	safeSearch := ModerateSafetySearch 
+	safeSearch := ModerateSafeSearch 
 ]
 
 { #category : #configuring }
 FlickrPhotoSearchEndpoint >> beRestrictedSafety [
-	safeSearch := RestrictedSafetySearch 
+	safeSearch := RestrictedSafeSearch 
 ]
 
 { #category : #configuring }
@@ -55,27 +55,27 @@ FlickrPhotoSearchEndpoint >> fetchPage [
 
 { #category : #configuring }
 FlickrPhotoSearchEndpoint >> filterCircle [
-	privacyFilter := Circle 
+	privacyFilter := CirclePrivacyFilter 
 ]
 
 { #category : #configuring }
 FlickrPhotoSearchEndpoint >> filterFamily [
-	privacyFilter := Family
+	privacyFilter := FamilyPrivacyFilter
 ]
 
 { #category : #configuring }
 FlickrPhotoSearchEndpoint >> filterFriends [
-	privacyFilter := Friends 
+	privacyFilter := FriendsPrivacyFilter 
 ]
 
 { #category : #configuring }
 FlickrPhotoSearchEndpoint >> filterPrivate [
-	privacyFilter := Private
+	privacyFilter := PrivatePrivacyFilter
 ]
 
 { #category : #configuring }
 FlickrPhotoSearchEndpoint >> filterPublic [
-	privacyFilter := Public
+	privacyFilter := PublicPrivacyFilter
 ]
 
 { #category : #initialization }

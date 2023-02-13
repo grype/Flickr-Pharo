@@ -3,8 +3,8 @@ Class {
 	#superclass : #SharedPool,
 	#classVars : [
 		'AllMedia',
-		'Photos',
-		'Videos'
+		'PhotoMedia',
+		'VideoMedia'
 	],
 	#category : #'Flickr-Constants'
 }
@@ -12,6 +12,6 @@ Class {
 { #category : #initialization }
 FlickrMediaConstants class >> initialize [
 	AllMedia := 'all'.
-	Videos := 'videos'.
-	Photos := 'photos'
+	VideoMedia := 'videos'.
+	PhotoMedia := 'photos'
 ]

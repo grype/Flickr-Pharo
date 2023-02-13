@@ -2,8 +2,8 @@ Class {
 	#name : #FlickrSafeSearchConstants,
 	#superclass : #SharedPool,
 	#classVars : [
-		'ModerateSafetySearch',
-		'RestrictedSafetySearch',
+		'ModerateSafeSearch',
+		'RestrictedSafeSearch',
 		'SafeSearch'
 	],
 	#category : #'Flickr-Constants'
@@ -12,6 +12,6 @@ Class {
 { #category : #initialization }
 FlickrSafeSearchConstants class >> initialize [
 	SafeSearch := 1.
-	ModerateSafetySearch := 2.
-	RestrictedSafetySearch := 3
+	ModerateSafeSearch := 2.
+	RestrictedSafeSearch := 3
 ]

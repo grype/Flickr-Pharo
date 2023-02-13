@@ -2,20 +2,20 @@ Class {
 	#name : #FlickrPrivacyFilterConstants,
 	#superclass : #SharedPool,
 	#classVars : [
-		'Circle',
-		'Family',
-		'Friends',
-		'Private',
-		'Public'
+		'CirclePrivacyFilter',
+		'FamilyPrivacyFilter',
+		'FriendsPrivacyFilter',
+		'PrivatePrivacyFilter',
+		'PublicPrivacyFilter'
 	],
 	#category : #'Flickr-Constants'
 }
 
 { #category : #initialization }
 FlickrPrivacyFilterConstants class >> initialize [
-	Public := 1.
-	Friends := 2.
-	Family := 3.
-	Circle := 4.
-	Private := 5
+	PublicPrivacyFilter := 1.
+	FriendsPrivacyFilter := 2.
+	FamilyPrivacyFilter := 3.
+	CirclePrivacyFilter := 4.
+	PrivatePrivacyFilter := 5
 ]
