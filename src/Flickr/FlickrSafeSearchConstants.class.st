@@ -6,7 +6,7 @@ Class {
 		'RestrictedSafetySearch',
 		'SafeSearch'
 	],
-	#category : #Flickr
+	#category : #'Flickr-Constants'
 }
 
 { #category : #initialization }

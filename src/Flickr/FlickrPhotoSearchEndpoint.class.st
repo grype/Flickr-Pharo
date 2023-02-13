@@ -5,13 +5,30 @@ Class {
 	#classTraits : 'TFlickrPagedEndpoint classTrait',
 	#instVars : [
 		'#text => FlickrQuerySlot',
-		'#safeSearch => FlickrQuerySlot'
+		'#safeSearch => FlickrQuerySlot',
+		'#media => FlickrQuerySlot'
 	],
 	#pools : [
+		'FlickrMediaConstants',
 		'FlickrSafeSearchConstants'
 	],
 	#category : #'Flickr-Endpoints'
 }
+
+{ #category : #configuring }
+FlickrPhotoSearchEndpoint >> beForAllMedia [
+	media := AllMedia
+]
+
+{ #category : #configuring }
+FlickrPhotoSearchEndpoint >> beForPhotosOnly [
+	media := Photos
+]
+
+{ #category : #configuring }
+FlickrPhotoSearchEndpoint >> beForVideosOnly [
+	media := Videos
+]
 
 { #category : #configuring }
 FlickrPhotoSearchEndpoint >> beModerateSafety [
