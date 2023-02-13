@@ -4,10 +4,29 @@ Class {
 	#traits : 'TFlickrPagedEndpoint',
 	#classTraits : 'TFlickrPagedEndpoint classTrait',
 	#instVars : [
-		'#text => FlickrQuerySlot'
+		'#text => FlickrQuerySlot',
+		'#safeSearch => FlickrQuerySlot'
+	],
+	#pools : [
+		'FlickrSafeSearchConstants'
 	],
 	#category : #'Flickr-Endpoints'
 }
+
+{ #category : #configuring }
+FlickrPhotoSearchEndpoint >> beModerateSafety [
+	safeSearch := ModerateSafetySearch 
+]
+
+{ #category : #configuring }
+FlickrPhotoSearchEndpoint >> beRestrictedSafety [
+	safeSearch := RestrictedSafetySearch 
+]
+
+{ #category : #configuring }
+FlickrPhotoSearchEndpoint >> beSafe [
+	safeSearch := SafeSearch
+]
 
 { #category : #enumerating }
 FlickrPhotoSearchEndpoint >> fetchPage [
