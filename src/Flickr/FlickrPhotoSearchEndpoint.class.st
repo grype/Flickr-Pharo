@@ -7,9 +7,11 @@ Class {
 		'#text => FlickrQuerySlot',
 		'#safeSearch => FlickrQuerySlot',
 		'#media => FlickrQuerySlot',
-		'#privacyFilter => FlickrQuerySlot'
+		'#privacyFilter => FlickrQuerySlot',
+		'#contentType => FlickrQuerySlot'
 	],
 	#pools : [
+		'FlickrContentTypeConstants',
 		'FlickrMediaConstants',
 		'FlickrPrivacyFilterConstants',
 		'FlickrSafeSearchConstants'
@@ -18,13 +20,48 @@ Class {
 }
 
 { #category : #configuring }
+FlickrPhotoSearchEndpoint >> beForAllContentType [
+	contentType := AllContentType 
+]
+
+{ #category : #configuring }
 FlickrPhotoSearchEndpoint >> beForAllMedia [
 	media := AllMedia
 ]
 
 { #category : #configuring }
+FlickrPhotoSearchEndpoint >> beForOtherOnlyContentType [
+	contentType := OtherOnlyContentType 
+]
+
+{ #category : #configuring }
+FlickrPhotoSearchEndpoint >> beForPhotosAndOtherContentType [
+	contentType := PhotosAndOtherContentType 
+]
+
+{ #category : #configuring }
+FlickrPhotoSearchEndpoint >> beForPhotosAndScreenshotsContentType [
+	contentType := PhotosAndScreenshotsContentType 
+]
+
+{ #category : #configuring }
 FlickrPhotoSearchEndpoint >> beForPhotosOnly [
 	media := PhotoMedia
+]
+
+{ #category : #configuring }
+FlickrPhotoSearchEndpoint >> beForPhotosOnlyContentType [
+	contentType := PhotosOnlyContentType 
+]
+
+{ #category : #configuring }
+FlickrPhotoSearchEndpoint >> beForScreenshotsAndOtherContentType [
+	contentType := ScreenshotsAndOtherContentType 
+]
+
+{ #category : #configuring }
+FlickrPhotoSearchEndpoint >> beForScreenshotsOnlyContentType [
+	contentType := ScreenshotsOnlyContentType 
 ]
 
 { #category : #configuring }
