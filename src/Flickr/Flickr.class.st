@@ -55,6 +55,28 @@ Flickr >> configure [
 				http queryAt: aSlot queryName put: val ] ] ]
 ]
 
+{ #category : #'instance creation' }
+Flickr >> do: aBlock [
+
+	^ ThisFlickr value: self during: [ aBlock cull: self ]
+]
+
+{ #category : #'instance creation' }
+Flickr >> do: aBlock whileFalse: aConditionBlock [
+
+	^ ThisFlickr
+		  value: self
+		  during: [ [ aBlock cull: self ] doWhileFalse: aConditionBlock ]
+]
+
+{ #category : #'instance creation' }
+Flickr >> do: aBlock whileTrue: aConditionBlock [
+
+	^ ThisFlickr
+		  value: self
+		  during: [ [ aBlock cull: self ] doWhileTrue: aConditionBlock ]
+]
+
 { #category : #execution }
 Flickr >> execute: anEndpoint with: aBlock [
 

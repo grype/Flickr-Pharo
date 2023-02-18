@@ -106,6 +106,16 @@ FlickrPhoto >> server: anObject [
 	server := anObject
 ]
 
+{ #category : #'accessing - computed' }
+FlickrPhoto >> sizeSpec [
+
+	^ sizeSpec ifNil: [ 
+		  self id ifNotNil: [ :anId | 
+			  ThisFlickr value ifNotNil: [ :flickr | 
+				  sizeSpec := (flickr photoWithId: anId) sizes ].
+			  sizeSpec ] ]
+]
+
 { #category : #accessing }
 FlickrPhoto >> title [
 
