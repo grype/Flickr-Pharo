@@ -2,7 +2,8 @@ Class {
 	#name : #Flickr,
 	#superclass : #WSClient,
 	#instVars : [
-		'apiKey'
+		'apiKey',
+		'baseUrl'
 	],
 	#classVars : [
 		'DefaultUrl'
@@ -25,6 +26,12 @@ Flickr class >> initialize [
 Flickr class >> withUrl: aUrl key: aKey [
 
 	^ self basicNew initializeWithUrl: aUrl key: aKey
+]
+
+{ #category : #accessing }
+Flickr >> baseUrl [
+
+	^ baseUrl 
 ]
 
 { #category : #http }

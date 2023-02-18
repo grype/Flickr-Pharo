@@ -9,7 +9,8 @@ Class {
 		'title',
 		'ispublic',
 		'isfriend',
-		'isfamily'
+		'isfamily',
+		'sizeSpec'
 	],
 	#category : #'Flickr-Models'
 }
