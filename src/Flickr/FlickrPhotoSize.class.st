@@ -19,6 +19,11 @@ FlickrPhotoSize class >> neoJsonMapping: mapper [
 ]
 
 { #category : #accessing }
+FlickrPhotoSize >> form [
+	^ Form fromBinaryStream: source asUrl retrieveContents readStream 
+]
+
+{ #category : #accessing }
 FlickrPhotoSize >> height [
 
 	^ height
