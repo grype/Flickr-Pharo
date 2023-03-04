@@ -17,6 +17,6 @@ BaselineOfFlickr >> baseline: spec [
 BaselineOfFlickr >> declareEthelOn: spec [
 	spec baseline: 'Ethel' with: [ 
 		spec
-			repository: 'github://grype/Ethel:develop';
+			repository: 'github://grype/Ethel:develop/src';
 			loads: #( core ) ]
 ]
